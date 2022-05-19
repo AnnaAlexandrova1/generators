@@ -14,5 +14,5 @@ test('Должна создавать объект типа GameSaving', (done) 
 
 test('Если promise будет выполнен с ошибкой', () => {
   expect.assertions(1);
-  return GameSavingLoader.load().catch((e) => expect(e).toMatch('error'));
+  return GameSavingLoader.load().catch((err) => expect(err).toMatch('error'));
 });

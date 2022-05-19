@@ -1,5 +1,5 @@
-export default function read() {
-  return new Promise((resolve) => {
+export default async function read() {
+  const promise = new Promise((resolve) => {
     // эмуляция чтения файла
     setTimeout(() => {
       const data = '{"id":9,"created":1546300800,"userInfo":{"id":1,"name":"Hitman","level":10,"points":2000}}';
@@ -13,4 +13,6 @@ export default function read() {
       })(data);
     }, 1000);
   });
+  const result = await promise;
+  return result;
 }
