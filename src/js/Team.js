@@ -9,23 +9,10 @@ export default class Team {
     }
   }
 
-  [Symbol.iterator]() {
+  * [Symbol.iterator]() {
     const memberList = Array.from(this.members);
-    let i = 0;
-    return {
-      next() {
-        if (i < memberList.length) {
-          const currentMember = memberList[i];
-          i += 1;
-          return {
-            done: false,
-            value: currentMember,
-          };
-        }
-        return {
-          done: true,
-        };
-      },
-    };
+    for (let i = 0; i < memberList.length; i += 1) {
+      yield memberList[i];
+    }
   }
 }
